@@ -4,7 +4,7 @@ This is a [addon](https://github.com/LuaLS/luarocks-build-addon) for the [luals]
 language server. It includes meta files with [LuaCATS](https://luals.github.io/wiki/annotations/) type annotations for the
 [DDNet++ lua plugin api](https://github.com/DDNetPP/DDNetPP/blob/master/docs/lua_plugins.md)
 
-![typehint preview](https://raw.githubusercontent.com/DDNetPP/cdn/refs/heads/master/typehints.gif)
+![typehint preview](https://raw.githubusercontent.com/DDNetPP/cdn/refs/heads/master/typehints.png)
 
 ## Quickstart
 
