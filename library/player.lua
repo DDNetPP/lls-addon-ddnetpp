@@ -1,7 +1,7 @@
 ---@meta
 
 ---@class Player
-Player = {}
+local Player = {}
 
 ---@return integer client_id
 function Player:id() end
