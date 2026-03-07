@@ -9,9 +9,25 @@ function Game:send_chat(message) end
 
 ---Returns the player instance or nil if no player with that id is connected.
 ---The client id is the same client id that is shown in the ddnet and teeworlds clients.
+---
+---Be careful! If you hold onto this instance across ticks it might become invalid.
+---If you store the player instance in some global variable and use it after the
+---player disconnected your plugin will crash!
+---
 ---@param client_id integer the client id of the player to find
 ---@return Player|nil player
 function Game:get_player(client_id) end
+
+---Returns the character instance or nil if no player with that id is connected or the player is currently dead.
+---The client id is the same client id that is shown in the ddnet and teeworlds clients.
+---
+---Be careful! If you hold onto this instance across ticks it might become invalid.
+---If you store the character instance in some global variable and use it after the
+---player disconnected or died your plugin will crash!
+---
+---@param client_id integer the client id of the character to find
+---@return Character|nil character
+function Game:get_character(client_id) end
 
 ---@param name string rcon command name
 ---@param parameters string teeworlds console parameter types and names
