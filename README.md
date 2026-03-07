@@ -20,3 +20,11 @@ luarocks install lls-addon-ddnetpp
 ```
 
 Thats it. You should now have type completions.
+
+A bit type hint unrelated but recommended is to add the following to your .luarc.json so the `on_tick()` and `on_init()` callbacks show no warnings:
+
+```json
+{
+  "diagnostics.disable":["lowercase-global"],
+}
+```
