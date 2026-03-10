@@ -11,7 +11,8 @@
 ---Called for every network message the server sends
 ---The client_id is the client that will receive the message
 ---and data is the raw data that is being sent
----@field on_server_message fun(client_id: integer, data: string, flags: integer)
+---return true to drop the message and abort sending it
+---@field on_server_message fun(client_id: integer, data: string, flags: integer): boolean
 ddnetpp = {}
 
 ---Sends a server chat message to everyone.
