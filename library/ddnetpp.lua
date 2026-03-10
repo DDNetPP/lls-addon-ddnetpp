@@ -63,3 +63,6 @@ function ddnetpp.get_character(client_id) end
 ---@param helptext string a short description of the rcon command will be shown in the console next to the completion
 ---@param callback fun(client_id: integer, args: table<string, string|integer|nil>) the callback that will be run if a user typed the command name into the remote console
 function ddnetpp.register_rcon(name, parameters, helptext, callback) end
+
+---@return string name name of the currently running plugin
+function ddnetpp.plugin_name() end
