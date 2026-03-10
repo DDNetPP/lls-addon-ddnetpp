@@ -1,11 +1,22 @@
 ---@meta
 
 ---@class ddnetpp
+---
+---Gets called every tick
+---@field on_tick fun()
+---
+---Called once when the server starts or when plugins are being reloaded
+---@field on_init fun()
+---
+---Called for every network message the server sends
+---The client_id is the client that will receive the message
+---and data is the raw data that is being sent
+---@field on_server_message fun(client_id: integer, data: string, flags: integer)
 ddnetpp = {}
 
 ---Sends a server chat message to everyone.
 ---@param message string
-function ddnetpp:send_chat(message) end
+function ddnetpp.send_chat(message) end
 
 ---Returns the player instance or nil if no player with that id is connected.
 ---The client id is the same client id that is shown in the ddnet and teeworlds clients.
@@ -16,7 +27,7 @@ function ddnetpp:send_chat(message) end
 ---
 ---@param client_id integer the client id of the player to find
 ---@return Player|nil player
-function ddnetpp:get_player(client_id) end
+function ddnetpp.get_player(client_id) end
 
 ---Returns the character instance or nil if no player with that id is connected or the player is currently dead.
 ---The client id is the same client id that is shown in the ddnet and teeworlds clients.
@@ -27,7 +38,7 @@ function ddnetpp:get_player(client_id) end
 ---
 ---@param client_id integer the client id of the character to find
 ---@return Character|nil character
-function Game:get_character(client_id) end
+function ddnetpp.get_character(client_id) end
 
 ---@param name string rcon command name
 ---@param parameters string teeworlds console parameter types and names
@@ -51,4 +62,4 @@ function Game:get_character(client_id) end
 ---                         and an error is shown to the user.
 ---@param helptext string a short description of the rcon command will be shown in the console next to the completion
 ---@param callback fun(client_id: integer, args: table<string, string|integer|nil>) the callback that will be run if a user typed the command name into the remote console
-function ddnetpp:register_rcon(name, parameters, helptext, callback) end
+function ddnetpp.register_rcon(name, parameters, helptext, callback) end
