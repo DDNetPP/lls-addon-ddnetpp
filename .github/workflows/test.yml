@@ -43,12 +43,12 @@ jobs:
     - name: Install (windows)
       if: contains(matrix.os, 'windows')
       run: |
-          luarocks-3.11.1-windows-32/luarocks.exe install lls-addon-ddnetpp-scm-0.rockspec
+          luarocks-3.11.1-windows-32/luarocks.exe install lls-addon-ddnetpp-dev-1.rockspec
 
     - name: Install (macOS/Linux)
       if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
       run: |
-          sudo luarocks install lls-addon-ddnetpp-scm-0.rockspec
+          sudo luarocks install lls-addon-ddnetpp-dev-1.rockspec
 
     - name: Run tests
       run: |
