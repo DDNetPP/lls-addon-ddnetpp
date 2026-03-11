@@ -1,61 +1,27 @@
-name: Test
-
-on:
-  push:
-    branches-ignore:
-      - gh-readonly-queue/**
-  pull_request:
-  merge_group:
-
+name: Tests
+on: [push]
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
     strategy:
-      fail-fast: false
       matrix:
-        # os: [ubuntu-latest, macOS-latest, windows-latest, ubuntu-20.04]
-        # os: [ubuntu-latest, ubuntu-20.04]
-        os: [ubuntu-latest]
-
+        luaVersion: ['5.1', '5.2', '5.3', '5.4', 'luau', 'luajit-2.1', 'luajit-openresty']
+    runs-on: ubuntu-latest
+    env:
+      TERM: xterm
     steps:
-    - uses: actions/checkout@v4
-      with:
-        submodules: true
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Prepare Linux
-      if: contains(matrix.os, 'ubuntu')
-      run: |
-        sudo apt-get update -y
-        sudo apt-get install pkg-config cmake clang build-essential luarocks -y
+      # Lua and LuaRocks installation
+      - uses: leafo/gh-actions-lua@v11
+      - uses: leafo/gh-actions-luarocks@v4
+        with:
+          luaVersion: ${{ matrix.luaVersion }}
 
-    - name: Prepare macOS
-      if: contains(matrix.os, 'macOS')
-      run: |
-        brew update || true
-        brew install pkg-config luarocks || true
+      - name: install
+        run: |
+          luarocks install ./*.rockspec
 
-    - name: Prepare windows
-      if: contains(matrix.os, 'windows')
-      run: |
-        wget "http://luarocks.github.io/luarocks/releases/luarocks-3.11.1-windows-32.zip" -outfile rocks.zip
-        unzip rocks.zip
-
-    - name: Install (windows)
-      if: contains(matrix.os, 'windows')
-      run: |
-          luarocks-3.11.1-windows-32/luarocks.exe install lls-addon-ddnetpp-dev-1.rockspec
-
-    - name: Install (macOS/Linux)
-      if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
-      run: |
-          # maybe the lua version is too old idk this does not work
-
-          # # TODO: this seems wrong
-          # #       https://github.com/LuaLS/luarocks-build-addon/tree/697f7a3bb9594265d0a3155d57daeded88b47b1e#usage-for-end-users
-          # sudo luarocks install luarocks-build-lls-addon
-          # sudo luarocks install lls-addon-ddnetpp-dev-1.rockspec
-
-    - name: Run tests
-      run: |
-        sudo luarocks test
-
+      - name: tests
+        run: |
+          luarocks test
