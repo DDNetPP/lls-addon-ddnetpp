@@ -48,10 +48,12 @@ jobs:
     - name: Install (macOS/Linux)
       if: contains(matrix.os, 'macOS') || contains(matrix.os, 'ubuntu')
       run: |
-          # TODO: this seems wrong
-          #       https://github.com/LuaLS/luarocks-build-addon/tree/697f7a3bb9594265d0a3155d57daeded88b47b1e#usage-for-end-users
-          sudo luarocks install luarocks-build-lls-addon
-          sudo luarocks install lls-addon-ddnetpp-dev-1.rockspec
+          # maybe the lua version is too old idk this does not work
+
+          # # TODO: this seems wrong
+          # #       https://github.com/LuaLS/luarocks-build-addon/tree/697f7a3bb9594265d0a3155d57daeded88b47b1e#usage-for-end-users
+          # sudo luarocks install luarocks-build-lls-addon
+          # sudo luarocks install lls-addon-ddnetpp-dev-1.rockspec
 
     - name: Run tests
       run: |
