@@ -50,7 +50,7 @@ jobs:
       run: |
           # TODO: this seems wrong
           #       https://github.com/LuaLS/luarocks-build-addon/tree/697f7a3bb9594265d0a3155d57daeded88b47b1e#usage-for-end-users
-          sudo luarocks-build-lls-addon
+          sudo luarocks install luarocks-build-lls-addon
           sudo luarocks install lls-addon-ddnetpp-dev-1.rockspec
 
     - name: Run tests
