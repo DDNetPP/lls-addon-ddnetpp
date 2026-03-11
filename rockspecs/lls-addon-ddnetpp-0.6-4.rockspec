@@ -1,6 +1,6 @@
 rockspec_format = "3.0"
 package = "lls-addon-ddnetpp"
-version = "dev-1"
+version = "0.6-4"
 source = {
 	url = "git+https://github.com/DDNetPP/lls-addon-ddnetpp",
 }
