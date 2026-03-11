@@ -19,6 +19,12 @@ jobs:
         with:
           luaVersion: ${{ matrix.luaVersion }}
 
+      - name: Test published install
+        run: |
+          lua -v
+          luarocks --version
+          luarocks install lls-addon-ddnetpp
+
       - name: install
         run: |
           luarocks install ./*.rockspec
