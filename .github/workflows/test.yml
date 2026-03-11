@@ -3,6 +3,7 @@ on: [push]
 jobs:
   test:
     strategy:
+      fail-fast: false
       matrix:
         luaVersion: ['5.1', '5.2', '5.3', '5.4', 'luau', 'luajit-2.1', 'luajit-openresty']
     runs-on: ubuntu-latest
