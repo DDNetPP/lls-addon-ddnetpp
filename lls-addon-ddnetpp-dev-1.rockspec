@@ -10,16 +10,16 @@ description = {
 	homepage = "https://github.com/DDNetPP/lls-addon-ddnetpp",
 	license = "Zlib",
 }
-dependencies = {
-  "luluworlds-params"
-}
-test_dependencies = {
-   "simple-assert",
-}
-test = {
-  type = "command",
-  command = "make test"
-}
+-- dependencies = {
+--   "luluworlds-params"
+-- }
+-- test_dependencies = {
+--    "simple-assert",
+-- }
+-- test = {
+--   type = "command",
+--   command = "make test"
+-- }
 build = {
 	type = "lls-addon"
 }
