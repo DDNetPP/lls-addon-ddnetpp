@@ -14,10 +14,13 @@ jobs:
         uses: actions/checkout@v4
 
       # Lua and LuaRocks installation
-      - uses: leafo/gh-actions-lua@v11
-      - uses: leafo/gh-actions-luarocks@v4
+      # https://github.com/LuaLS/luarocks-build-addon/blob/697f7a3bb9594265d0a3155d57daeded88b47b1e/.github/workflows/test.yml#L16-L24
+      - uses: leafo/gh-actions-lua@v12
         with:
           luaVersion: ${{ matrix.luaVersion }}
+      - uses: leafo/gh-actions-luarocks@v6
+        with:
+          luaRocksVersion: "3.13.0"
 
       - name: Test published install
         run: |
