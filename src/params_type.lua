@@ -1,4 +1,4 @@
-local tw_console = require("luluworlds.params")
+local tw_console = require("src.external.luluworlds.params")
 
 ---@param params_text string # teeworlds params like "i[client_id]"
 ---@return nil|string comment # LuaCATS annotations for the params table
