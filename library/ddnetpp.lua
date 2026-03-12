@@ -8,6 +8,9 @@
 ---Called once when the server starts or when plugins are being reloaded
 ---@field on_init fun()
 ---
+---@field on_player_connect fun(client_id: integer)
+---@field on_player_disconnect fun(client_id: integer)
+---
 ---The client_id is the client that will receive the message
 ---and data is the raw data that is being sent
 ---return true to drop the message and abort sending it.
