@@ -1,5 +1,9 @@
 ---@meta
 
+---@class ChatMessage
+---@field message string the chat message payload
+---@field team integer TEAM_ALL=-2, TEAM_SPECTATORS=-1, or a ddrace team
+
 ---@class ddnetpp
 ---
 ---Gets called every tick
@@ -10,6 +14,13 @@
 ---
 ---@field on_player_connect fun(client_id: integer)
 ---@field on_player_disconnect fun(client_id: integer)
+---
+---The parameter msg contains msg.message and msg.team
+---which are already filled with the information that would be displayed
+---in the chat or used for a chat command.
+---You can also override these fields to alter the chat message.
+---You have to return the `msg` from the function!
+---@field on_chat fun(client_id: integer, msg: ChatMessage): ChatMessage
 ---
 ---The client_id is the client that will receive the message
 ---and data is the raw data that is being sent
