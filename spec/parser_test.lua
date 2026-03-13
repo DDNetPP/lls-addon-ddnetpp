@@ -14,6 +14,11 @@ end)
 ddnetpp.register_rcon("test", "i[client_id]s[name]", "description of command", function (client_id, args)
 	ddnetpp.send_chat("cid=" .. args.client_id .. " name=" .. args.name)
 end)
+
+ddnetpp.register_chat("chatcmd", "i[client_id]s[foo]", "description of command", function (client_id, args)
+	ddnetpp.send_chat("cid=" .. args.client_id .. " name=" .. args.foo)
+end)
+
 ]])
 
 assert_eq(95, diffs[1].start)
@@ -23,3 +28,7 @@ assert_eq("---@cast args { foo: string }", diffs[1].text)
 assert_eq(297, diffs[2].start)
 assert_eq(296, diffs[2].finish)
 assert_eq("---@cast args { client_id: integer, name: string }", diffs[2].text)
+
+assert_eq(481, diffs[3].start)
+assert_eq(480, diffs[3].finish)
+assert_eq("---@cast args { client_id: integer, foo: string }", diffs[3].text)
