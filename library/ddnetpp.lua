@@ -60,8 +60,13 @@
 ddnetpp = {}
 
 ---Sends a server chat message to everyone.
----@param message string
+---@param message string # The message to be displayed in chat
 function ddnetpp.send_chat(message) end
+
+---Sends a server chat message to one specific client.
+---@param client_id integer # The recipient of the message
+---@param message string # The message to be displayed in chat
+function ddnetpp.send_chat_target(client_id, message) end
 
 ---Returns the player instance or nil if no player with that id is connected.
 ---The client id is the same client id that is shown in the ddnet and teeworlds clients.
