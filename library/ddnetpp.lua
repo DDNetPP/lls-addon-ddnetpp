@@ -53,6 +53,9 @@
 ---You have to return the `msg` from the function!
 ---@field on_chat fun(client_id: integer, msg: ChatMessage): ChatMessage
 ---
+---You can return false from this method to block the shot.
+---@field on_fire_weapon fun(client_id: integer, weapon: integer, direction: Vec2, mouse_target: Vec2, projectile_start_pos: Position): false|nil
+---
 ---The client_id is the client that will receive the message
 ---and data is the raw data that is being sent
 ---return true to drop the message and abort sending it.
