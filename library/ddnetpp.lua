@@ -71,6 +71,11 @@ function ddnetpp.send_chat(message) end
 ---@param message string # The message to be displayed in chat
 function ddnetpp.send_chat_target(client_id, message) end
 
+---Execute rcon command with admin level privileges.
+---Semicolons are interpreted! So it is NOT SAFE to pass user input to this method.
+---@param command string # Full rcon command line with multiple semicolon separated statements
+function ddnetpp.rcon(command) end
+
 ---Returns the player instance or nil if no player with that id is connected.
 ---The client id is the same client id that is shown in the ddnet and teeworlds clients.
 ---
