@@ -6,11 +6,40 @@
 
 ---@class ddnetpp
 ---
----Gets called every tick
----@field on_tick fun()
+---A snapshot is the current state of the world
+---here you can display all sorts of flexible entities
+---such as weapons, picksups, projectiles and players
+---@field snap Snapshot # Snapshot related methods
 ---
 ---Called once when the server starts or when plugins are being reloaded
 ---@field on_init fun()
+---
+---Gets called every tick
+---@field on_tick fun()
+---
+---Gets called every time the server builds a new snapshot
+---a snapshot is being built for every connected client idenpendently
+---so the id of the client receiving the snapshot is passed as argument.
+---This value can be -1 too when the server is recording demos.
+---You can register your snap items in this method by using
+---the `ddnetpp.snap.*` methods. For example:
+---```lua
+---function ddnetpp.on_snap()
+---	chr = ddnetpp.get_character(0)
+---	if chr then
+---		pos = chr:pos()
+---		ddnetpp.snap.new_laser({
+---			id = -- allocate the id once with ddnetpp.snap.new_id() and then reuse it
+---			x = pos.x,
+---			y = pos.y - 2,
+---			from_x = pos.x,
+---			from_y = pos.y - 2,
+---			start_tick = 0,
+---		})
+---	end
+---end
+---```
+---@field on_snap fun(snapping_client_id: integer)
 ---
 ---@field on_player_connect fun(client_id: integer)
 ---@field on_player_disconnect fun(client_id: integer)
