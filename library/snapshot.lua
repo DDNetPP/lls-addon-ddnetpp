@@ -8,6 +8,14 @@
 ---@field from_y number # The starting position y of the laser ray
 ---@field start_tick integer # The servers tick of when this laser was created
 
+---@class SnapItemPickup
+---@field id integer # Snap item id that should be unique per snap item, use `ddnetpp.snap.new_id()` for that
+---@field pos Position # The position of the pickup
+---@field type integer # For example ddnetpp.protocol.POWERUP_WEAPON
+---@field sub_type integer # For example ddnetpp.protocol.WEAPON_HAMMER
+---@field switch_number integer # Which switch index turns on or off the pickup
+---@field flags integer # TODO: document and defined types
+
 ---@class Snapshot
 local snap = {}
 
@@ -30,3 +38,35 @@ function snap.free_id(snap_item_id) end
 ---times as you want using this method and then free the id using `ddnetpp.snap.free_id()`
 ---@param laser SnapItemLaser # The laser that will be included in the current snapshot
 function snap.new_laser(laser) end
+
+---Only call this method from within the `ddnetpp.snap.on_snap()` callback!
+---Adds one pickup to the current snapshot. You have to call this every snapshot
+---to keep it there. To remove it stop calling it.
+---For one pickup call `ddnetpp.snap.new_id()` once then snap it as many
+---times as you want using this method and then free the id using `ddnetpp.snap.free_id()`
+---Example:
+---```lua
+---local pickup_id = nil
+---
+---function ddnetpp.on_init()
+---	pickup_id = ddnetpp.snap.new_id()
+---end
+---
+---function ddnetpp.on_snap(snapping_client)
+---	local chr = ddnetpp.get_character(0)
+---	if chr == nil then
+---		return
+---	end
+---
+---	local pos = chr:pos()
+---	pos.x = pos.x + 2
+---	ddnetpp.snap.new_pickup({
+---		id = pickup_id,
+---		pos = pos,
+---		type = ddnetpp.protocol.POWERUP_WEAPON,
+---		sub_type = ddnetpp.protocol.WEAPON_HAMMER,
+---	})
+---end
+---```
+---@param pickup SnapItemPickup # The pickup that will be included in the current snapshot
+function snap.new_pickup(pickup) end
