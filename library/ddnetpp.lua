@@ -11,6 +11,8 @@
 ---such as weapons, picksups, projectiles and players
 ---@field snap Snapshot # Snapshot related methods
 ---
+---@field server Server # The name server only makes sense if you know the C++ codebase :D
+---
 ---Called once when the server starts or when plugins are being reloaded
 ---@field on_init fun()
 ---
