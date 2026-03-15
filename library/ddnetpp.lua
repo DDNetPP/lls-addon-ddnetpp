@@ -21,6 +21,9 @@
 ---Gets called every tick
 ---@field on_tick fun()
 ---
+---Gets called every tick for every connected player
+---@field on_player_tick fun(player: Player)
+---
 ---Gets called every time the server builds a new snapshot
 ---a snapshot is being built for every connected client idenpendently
 ---so the id of the client receiving the snapshot is passed as argument.
