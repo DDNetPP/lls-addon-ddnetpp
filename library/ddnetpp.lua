@@ -62,7 +62,29 @@
 ---and data is the raw data that is being sent
 ---return true to drop the message and abort sending it.
 ---@field on_server_message fun(client_id: integer, data: string, flags: integer): boolean # Called for every network message the server sends. Return true to drop the message.
-ddnetpp = {}
+ddnetpp = {
+	skin_priority = {
+		-- the skin the client requested
+		USER = 0,
+
+		-- priority "low" should be used by the main color
+		-- enforced by a gamemode that supports rainbow.
+		-- it overwrites the user choice but gets overwritten by
+		-- rainbow.
+		-- Modes that use this are for example: zCatch
+		LOW = 1,
+
+		-- you should never write to this priority or you break rainbow
+		RAINBOW = 2,
+
+		-- priority "high" should be used by the main color
+		-- enforced by a gamemode that does not support rainbow.
+		-- It overwrites the user choice and rainbow.
+		--
+		-- Modes that use this are for example: bomb
+		HIGH = 3,
+	}
+}
 
 ---Sends a server chat message to everyone.
 ---@param message string # The message to be displayed in chat
