@@ -11,10 +11,10 @@
 ---@class SnapItemPickup
 ---@field id integer # Snap item id that should be unique per snap item, use `ddnetpp.snap.new_id()` for that
 ---@field pos Position # The position of the pickup
----@field type integer # For example ddnetpp.protocol.POWERUP_WEAPON
----@field sub_type integer # For example ddnetpp.protocol.WEAPON_HAMMER
----@field switch_number integer # Which switch index turns on or off the pickup
----@field flags integer # TODO: document and defined types
+---@field type? integer # For example ddnetpp.protocol.POWERUP_WEAPON
+---@field sub_type? integer # For example ddnetpp.protocol.WEAPON_HAMMER
+---@field switch_number? integer # Which switch index turns on or off the pickup
+---@field flags? integer # TODO: document and defined types
 
 ---@class Snapshot
 local snap = {}
