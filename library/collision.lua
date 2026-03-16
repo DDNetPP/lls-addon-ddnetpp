@@ -19,8 +19,8 @@ function collision.height() end
 ---The coordinate origin of 0,0 is the top left corner of the map.
 ---The maximum value for x and y are ddnetpp.collision.width() and ddnetpp.collision.height()
 ---See also `ddnetpp.collision.get_tile(pos)`
----@param x integer # The x coordinate to lookup. Where 0 is the most left tile and 1 is one to its right.
----@param y integer # The y coordinate to lookup. Where 0 is the highest tile and 1 is one below it.
+---@param x integer|number # The x coordinate to lookup. Where 0 is the most left tile and 1 is one to its right.
+---@param y integer|number # The y coordinate to lookup. Where 0 is the highest tile and 1 is one below it.
 ---@return integer tile # The index of the found tile. See ddnetpp.tile.* for the possible values
 function collision.get_tile_index(x, y) end
 
