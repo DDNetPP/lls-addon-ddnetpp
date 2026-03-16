@@ -26,6 +26,13 @@
 ---Gets called every tick for every connected player
 ---@field on_player_tick fun(player: Player)
 ---
+---Implement your own tiles here.
+---Gets called for every alive character.
+---If you want to know the position you can just do `character:pos()`
+---The game_index is a tile index like ddnetpp.tile.AIR from the main game layer
+---and the front_index is the same from the ddrace front layer.
+---@field on_character_tile fun(character: Character, game_index: integer, front_index: integer)
+---
 ---Gets called every time the server builds a new snapshot
 ---a snapshot is being built for every connected client idenpendently
 ---so the id of the client receiving the snapshot is passed as argument.
