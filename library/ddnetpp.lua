@@ -181,7 +181,18 @@ ddnetpp = {
 		-- CREDITS_8 = 159,
 		-- ENTITIES_OFF_1 = 190,
 		-- ENTITIES_OFF_2 = 191,
-	}
+	},
+	weapon = {
+		GAME = -3,
+		SELF = -2,
+		WORLD = -1,
+		HAMMER = 0,
+		GUN = 1,
+		SHOTGUN = 2,
+		GRENADE = 3,
+		LASER = 4,
+		NINJA = 5,
+	},
 }
 
 ---Sends a server chat message to everyone.
