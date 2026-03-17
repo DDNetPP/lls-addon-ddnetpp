@@ -43,11 +43,11 @@
 
 ---@class SnapItemPlayerInfo
 ---@field id integer # Snap item id that should be unique per snap item, use `ddnetpp.snap.new_id()` for that
----@field is_local boolean # If set to true the snap receiver will use this as its own info
+---@field is_local? boolean # If set to true the snap receiver will use this as its own info
 ---@field client_id integer
----@field team integer # See ddnetpp.team.* constants for possible values (but without team.ALL xd)
----@field score integer
----@field latency integer
+---@field team? integer # See ddnetpp.team.* constants for possible values (but without team.ALL xd)
+---@field score? integer
+---@field latency? integer
 
 ---@class Snapshot
 local snap = {}
