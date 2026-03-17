@@ -4,9 +4,9 @@
 ---@field id integer # Snap item id that should be unique per snap item, use `ddnetpp.snap.new_id()` for that
 ---@field x number # The end position x of the laser ray
 ---@field y number # The end position y of the laser ray
----@field from_x number # The starting position x of the laser ray
----@field from_y number # The starting position y of the laser ray
----@field start_tick integer # The servers tick of when this laser was created
+---@field from_x? number # The starting position x of the laser ray
+---@field from_y? number # The starting position y of the laser ray
+---@field start_tick? integer # The servers tick of when this laser was created
 
 ---@class SnapItemPickup
 ---@field id integer # Snap item id that should be unique per snap item, use `ddnetpp.snap.new_id()` for that
