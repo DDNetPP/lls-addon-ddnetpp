@@ -24,6 +24,14 @@ function collision.height() end
 ---@return integer tile # The index of the found tile. See ddnetpp.tile.* for the possible values
 function collision.get_tile_index(x, y) end
 
+---Given the coordinates it will find the type of tile at that position in the map.
+---The coordinate origin of 0,0 is the top left corner of the map.
+---The maximum value for x and y are ddnetpp.collision.width() and ddnetpp.collision.height()
+---See also `ddnetpp.collision.get_tile(pos)`
+---@param pos Position # Floating point or decimal position with x and y
+---@return integer tile # The index of the found tile. See ddnetpp.tile.* for the possible values
+function collision.get_tile_index(pos) end
+
 ---See also `ddnetpp.collision.get_tile_index(x, y)`
 ---@param pos Position # Floating point or decimal position with x and y
 ---@return Tile tile # The full tile information at that position
