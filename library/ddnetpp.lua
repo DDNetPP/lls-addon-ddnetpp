@@ -234,6 +234,32 @@ function ddnetpp.send_chat(message) end
 ---@param message string # The message to be displayed in chat
 function ddnetpp.send_chat_target(client_id, message) end
 
+---Sends a server broadcast message to everyone
+---That is the white text in the middle of the screen.
+---You can use \n for newlines.
+---@param text string # The text to be displayed
+function ddnetpp.send_broadcast(text) end
+
+---Sends a server broadcast message to one player
+---That is the white text in the middle of the screen.
+---You can use \n for newlines.
+---@param text string # The text to be displayed
+---@param client_id ClientId # The player that will receive the broadcast
+function ddnetpp.send_broadcast_target(client_id, text) end
+
+---Sends a server message of the day to everyone
+---The is the big wall of text with the dark background.
+---You can use \n for newlines.
+---@param text string # The text to be displayed
+function ddnetpp.send_motd(text) end
+
+---Sends a server message of the day to one player
+---The is the big wall of text with the dark background.
+---You can use \n for newlines.
+---@param text string # The text to be displayed
+---@param client_id ClientId # The player that will receive the broadcast
+function ddnetpp.send_motd_target(client_id, text) end
+
 ---Execute rcon command with admin level privileges.
 ---Semicolons are interpreted! So it is NOT SAFE to pass user input to this method.
 ---@param command string # Full rcon command line with multiple semicolon separated statements
