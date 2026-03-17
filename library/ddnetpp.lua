@@ -66,6 +66,9 @@
 ---```
 ---@field on_snap fun(snapping_client_id: integer)
 ---
+---@field on_snap_gameinfo_flags fun(snapping_client_id: integer, flags: integer): integer
+---@field on_snap_gameinfo_flags2 fun(snapping_client_id: integer, flags: integer): integer
+---
 ---@field on_player_connect fun(client_id: integer)
 ---@field on_player_disconnect fun(client_id: integer)
 ---
@@ -220,6 +223,15 @@ ddnetpp = {
 		RED = 0,
 		BLUE = 1,
 		GAME = 0,
+	},
+	flags = {
+		gameinfo = {
+			TIMESCORE = 1,
+			GAMETYPE_RACE = 2,
+			GAMETYPE_FASTCAP = 4,
+			GAMETYPE_FNG = 8,
+			GAMETYPE_DDRACE = 16,
+		}
 	},
 }
 
