@@ -49,6 +49,16 @@
 ---@field score? integer
 ---@field latency? integer
 
+---@class SnapItemClientInfo
+---@field id integer # Snap item id that should be unique per snap item, use `ddnetpp.snap.new_id()` for that
+---@field name? string # Will be displayed in chat and scoreboard and a few other places
+---@field clan? string # Will be displayed in scoreboard and clan nameplates if turned on
+---@field country? integer
+---@field skin? string # Name of the skin which maps directly to a png file in the skins directory
+---@field use_custom_color? boolean # If set to false it will ignore color body and feet and use the skins default color
+---@field color_body? integer
+---@field color_feet? integer
+
 ---@class Snapshot
 local snap = {}
 
@@ -108,9 +118,27 @@ function snap.new_pickup(pickup) end
 ---This only sends one specific tee information over the network.
 ---It does not create a full character instance with physics.
 ---If you want this character to be "alive" or move you have to implement all of that.
+---Also for it to properly display you also need client and player info.
+---So call ddnetp.snap.new_client_info() and ddnetpp.snap.new_player_info() and pass the
+---same item and client id for it to match.
 ---Example:
 ---```lua
 ---function ddnetpp.on_snap()
+---	ddnetpp.snap.new_client_info({
+---		id = 10,
+---		name = "foo",
+---		clan = "",
+---		skin = "greensward",
+---		use_custom_color = false,
+---	})
+---	ddnetpp.snap.new_player_info({
+---		id = 10,
+---		client_id = 10,
+---		is_local = false,
+---		team = ddnetpp.team.GAME,
+---		score = 0,
+---		latency = 0,
+---	})
 ---	ddnetpp.snap.new_character({
 ---		id = 10,
 ---		tick = 10,
@@ -142,5 +170,11 @@ function snap.new_pickup(pickup) end
 function snap.new_character(character) end
 
 ---Only call this method from within the `ddnetpp.snap.on_snap()` callback!
+---See ddnetpp.snap.new_character() for a full example
 ---@param player_info SnapItemPlayerInfo # The info to be included in the current snapshot
 function snap.new_player_info(player_info) end
+
+---Only call this method from within the `ddnetpp.snap.on_snap()` callback!
+---See ddnetpp.snap.new_character() for a full example
+---@param client_info SnapItemClientInfo # The info to be included in the current snapshot
+function snap.new_client_info(client_info) end
