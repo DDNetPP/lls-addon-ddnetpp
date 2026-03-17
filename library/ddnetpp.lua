@@ -205,6 +205,13 @@ ddnetpp = {
 		NORMAL = 0,
 		PAIN = 1,
 	},
+	team = {
+		ALL = -2,
+		SPECTATORS = -1,
+		RED = 0,
+		BLUE = 1,
+		GAME = 0,
+	},
 }
 
 ---Sends a server chat message to everyone.
