@@ -100,5 +100,35 @@ function snap.new_pickup(pickup) end
 ---This only sends one specific tee information over the network.
 ---It does not create a full character instance with physics.
 ---If you want this character to be "alive" or move you have to implement all of that.
+---Example:
+---```lua
+---function ddnetpp.on_snap()
+---	ddnetpp.snap.new_character({
+---		id = 10,
+---		tick = 10,
+---		x = 10,
+---		y = 10,
+---		vel_x = 10,
+---		vel_y = 10,
+---		angle = 0,
+---		direction = 1,
+---		jumped = 1,
+---		hooked_player = 0,
+---		hook_state = ddnetpp.hook.GRABBED,
+---		hook_tick = 2,
+---		hook_x = 2,
+---		hook_y = 2,
+---		hook_dx = 2,
+---		hook_dy = 2,
+---		player_flags = 2,
+---		health = 2,
+---		armor = 2,
+---		ammo_count = -1,
+---		weapon = ddnetpp.weapon.LASER,
+---		eye_emote = ddnetpp.eye_emote.PAIN,
+---		attack_tick = 3,
+---	})
+---end
+---```
 ---@param character Character # The tee to be included in the current snapshot
 function snap.new_character(character) end
