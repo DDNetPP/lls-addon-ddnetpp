@@ -193,6 +193,18 @@ ddnetpp = {
 		LASER = 4,
 		NINJA = 5,
 	},
+	hook = {
+		RETRACTED = -1,
+		IDLE = 0,
+		RETRACT_START = 1,
+		RETRACT_END = 3,
+		FLYING = 4,
+		GRABBED = 5,
+	},
+	eye_emote = {
+		NORMAL = 0,
+		PAIN = 1,
+	},
 }
 
 ---Sends a server chat message to everyone.

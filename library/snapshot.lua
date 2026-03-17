@@ -16,6 +16,31 @@
 ---@field switch_number? integer # Which switch index turns on or off the pickup
 ---@field flags? integer # TODO: document and defined types
 
+---@class SnapItemCharacter
+---@field id integer # Snap item id that should be unique per snap item, use `ddnetpp.snap.new_id()` for that
+---@field tick? integer # The reckoning tick for dead reckoning. The client will use the world and character position and velocity to predict a new position based on the tick diff
+---@field x integer # The x coordinate in the world
+---@field y integer # The y coordinate in the world
+---@field vel_x integer # The horizontal velocity, positive number is speed to the right and negative to the left
+---@field vel_y integer # The vertical velocity, positive number is speed downwards and negative is speed upwards
+---@field angle integer # The rotation of the weapon
+---@field direction integer # -1 is left 0 is not walking and 1 is right
+---@field jumped integer # Checkout this for more details https://chillerdragon.github.io/teeworlds-protocol/07/snap_items.html#obj_character_core
+---@field hooked_player integer # Client id of the player this character is currently hooking or -1 if the hook is not attached to another tee
+---@field hook_state integer # See the ddnetpp.hook.* constants for possible values
+---@field hook_tick integer
+---@field hook_x integer
+---@field hook_y integer
+---@field hook_dx integer
+---@field hook_dy integer
+---@field player_flags integer # Bitwise flags like chatting
+---@field health integer # Should be in range of 0-10 but can also be -1 if it should be hidden
+---@field armor integer # Should be in range of 0-10 but can also be -1 if it should be hidden
+---@field ammo_count integer
+---@field weapon integer # See ddnetpp.weapon.* constants for possible values
+---@field eye_emote integer # See ddnetpp.eye_emote.* constants for possible values
+---@field attack_tick integer
+
 ---@class Snapshot
 local snap = {}
 
@@ -70,3 +95,10 @@ function snap.new_laser(laser) end
 ---```
 ---@param pickup SnapItemPickup # The pickup that will be included in the current snapshot
 function snap.new_pickup(pickup) end
+
+---Only call this method from within the `ddnetpp.snap.on_snap()` callback!
+---This only sends one specific tee information over the network.
+---It does not create a full character instance with physics.
+---If you want this character to be "alive" or move you have to implement all of that.
+---@param character Character # The tee to be included in the current snapshot
+function snap.new_character(character) end
