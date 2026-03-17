@@ -41,6 +41,14 @@
 ---@field eye_emote integer # See ddnetpp.eye_emote.* constants for possible values
 ---@field attack_tick integer
 
+---@class SnapItemPlayerInfo
+---@field id integer # Snap item id that should be unique per snap item, use `ddnetpp.snap.new_id()` for that
+---@field is_local boolean # If set to true the snap receiver will use this as its own info
+---@field client_id integer
+---@field team integer
+---@field score integer
+---@field latency integer
+
 ---@class Snapshot
 local snap = {}
 
@@ -130,5 +138,9 @@ function snap.new_pickup(pickup) end
 ---	})
 ---end
 ---```
----@param character Character # The tee to be included in the current snapshot
+---@param character SnapItemCharacter # The tee to be included in the current snapshot
 function snap.new_character(character) end
+
+---Only call this method from within the `ddnetpp.snap.on_snap()` callback!
+---@param player_info SnapItemPlayerInfo # The info to be included in the current snapshot
+function snap.new_player_info(player_info) end
