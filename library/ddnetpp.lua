@@ -33,6 +33,15 @@
 ---and the front_index is the same from the ddrace front layer.
 ---@field on_character_tile fun(character: Character, game_index: integer, front_index: integer)
 ---
+---Similar to ddnetpp.on_character_tile() but only gets called once when the character
+---touched a new tile.
+---@field on_character_game_tile_change fun(character: Character, game_index: integer)
+---
+---Return true from this method if the ddnet++ default behavior for this tile should
+---be skipped. You can use this to disable or override existing tiles.
+---Similar to on_character_tile() this gets called every tick.
+---@field on_skip_game_tile fun(character: Character, game_index: integer): boolean
+---
 ---Gets called every time the server builds a new snapshot
 ---a snapshot is being built for every connected client idenpendently
 ---so the id of the client receiving the snapshot is passed as argument.
@@ -106,7 +115,7 @@ ddnetpp = {
 		-- THROUGH_CUT = 5,
 		-- THROUGH = 6,
 		-- JUMP = 7,
-		-- FREEZE = 9,
+		FREEZE = 9,
 		-- TELEINEVIL = 10,
 		-- UNFREEZE = 11,
 		-- DFREEZE = 12,
