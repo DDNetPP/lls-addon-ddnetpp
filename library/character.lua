@@ -3,8 +3,18 @@
 ---@class Character
 local Character = {}
 
+---Counter part to :set_position()
 ---@return Position pos # The floating point position of a tee in the world
 function Character:pos() end
+
+---Counter part to :pos()
+---@param pos Position # Teleport the current tee to that new position instantly without killing them
+function Character:set_position(pos) end
+
+---Counter part to :pos()
+---@param x integer|number # Teleport target x coordinate
+---@param y integer|number # Teleport target x coordinate
+function Character:set_position(x, y) end
 
 ---@return integer client_id # Same as id() on the player instance
 function Character:id() end
