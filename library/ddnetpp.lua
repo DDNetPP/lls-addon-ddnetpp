@@ -72,6 +72,13 @@
 ---@field on_player_connect fun(client_id: integer)
 ---@field on_player_disconnect fun(client_id: integer)
 ---
+---Gets called when a tee is about to spawn.
+---There is no character instance yet because the tee is still dead.
+---If you return a position {x=0,y=0} table it will use that as spawn position
+---ignoring where it would otherwise spawn. If you return nil it will
+---use the default spawn position.
+---@field on_pick_spawn_pos fun(player: Player): Position|nil
+---
 ---The parameter msg contains msg.message and msg.team
 ---which are already filled with the information that would be displayed
 ---in the chat or used for a chat command.
