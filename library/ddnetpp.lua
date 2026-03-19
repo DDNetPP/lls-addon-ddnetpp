@@ -279,6 +279,12 @@ function ddnetpp.send_motd(text) end
 ---@param client_id ClientId # The player that will receive the broadcast
 function ddnetpp.send_motd_target(client_id, text) end
 
+---Render a text our of laser projectiles in the world
+---@param pos Position # Where in the world the laser text should appear
+---@param text string # What kind of text should be displayed
+---@param ticks? integer # For how many server ticks the text should be displayed (see ddnetpp.server.tick_speed())
+function ddnetpp.laser_text(pos, text, ticks) end
+
 ---Execute rcon command with admin level privileges.
 ---Semicolons are interpreted! So it is NOT SAFE to pass user input to this method.
 ---@param command string # Full rcon command line with multiple semicolon separated statements
