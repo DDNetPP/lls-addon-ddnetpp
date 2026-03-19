@@ -39,8 +39,9 @@ function collision.get_tile(pos) end
 
 ---@param pos Position
 ---@param vel Velocity
----@param size Vec2
----@param elasticity Vec2
+---@param size? Vec2
+---@param elasticity? Vec2
 ---@return Position new_pos
+---@return Velocity new_vel
 ---@return boolean grounded
 function collision.move_box(pos, vel, size, elasticity) end
