@@ -20,3 +20,11 @@ luarocks install lls-addon-ddnetpp
 ```
 
 Thats it. You should now have type completions.
+
+It is also recommended to enable table shape checking in your `.luarc.json` file to let the lsp validate if you return the correct tables from callbacks.
+
+```json
+{
+  "type.checkTableShape": true,
+}
+```
