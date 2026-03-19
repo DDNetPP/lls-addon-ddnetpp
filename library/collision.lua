@@ -36,3 +36,11 @@ function collision.get_tile_index(pos) end
 ---@param pos Position # Floating point or decimal position with x and y
 ---@return Tile tile # The full tile information at that position
 function collision.get_tile(pos) end
+
+---@param pos Position
+---@param vel Velocity
+---@param size Vec2
+---@param elasticity Vec2
+---@return Position new_pos
+---@return boolean grounded
+function collision.move_box(pos, vel, size, elasticity) end
