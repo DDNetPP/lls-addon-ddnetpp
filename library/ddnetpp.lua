@@ -244,6 +244,27 @@ ddnetpp = {
 
 ---@alias ClientId integer|Character|Player
 
+---@param system string # Short logger namespace like "lua" or "server"
+---@param message string # Line to log to the server console
+function ddnetpp.log_info(system, message) end
+
+---@param message string # Line to log to the server console
+function ddnetpp.log_info(message) end
+
+---@param system string # Short logger namespace like "lua" or "server"
+---@param message string # Line to log to the server console
+function ddnetpp.log_warn(system, message) end
+
+---@param message string # Line to log to the server console
+function ddnetpp.log_warn(message) end
+
+---@param system string # Short logger namespace like "lua" or "server"
+---@param message string # Line to log to the server console
+function ddnetpp.log_error(system, message) end
+
+---@param message string # Line to log to the server console
+function ddnetpp.log_error(message) end
+
 ---Sends a server chat message to everyone.
 ---@param message string # The message to be displayed in chat
 function ddnetpp.send_chat(message) end
