@@ -1,5 +1,10 @@
 ---@meta
 
+---@class ClientMask
+---The keys are client id integers from 0 to 127
+---all set keys are included in the mask
+---all unset keys are ignored by the mask
+
 ---@class ChatMessage
 ---@field message string the chat message payload
 ---@field team integer TEAM_ALL=-2, TEAM_SPECTATORS=-1, or a ddrace team
@@ -313,7 +318,8 @@ function ddnetpp.laser_text(pos, text, ticks) end
 ---@param weapon integer?
 ---@param no_damage boolean?
 ---@param team integer?
-function ddnetpp.create_explosion(pos, owner, weapon, no_damage, team) end
+---@param mask ClientMask?
+function ddnetpp.create_explosion(pos, owner, weapon, no_damage, team, mask) end
 
 ---Execute rcon command with admin level privileges.
 ---Semicolons are interpreted! So it is NOT SAFE to pass user input to this method.
