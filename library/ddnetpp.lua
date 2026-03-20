@@ -392,9 +392,13 @@ function ddnetpp.create_player_spawn(pos, mask) end
 function ddnetpp.create_death(pos, client_id, mask) end
 
 ---@param pos Position
----@param sound_id integer # See ddnetpp.sound.* constants for possible values
+---@param sound_id? integer # See ddnetpp.sound.* constants for possible values
 ---@param mask? ClientMask
 function ddnetpp.create_sound(pos, sound_id, mask) end
+
+---@param sound_id? integer # See ddnetpp.sound.* constants for possible values
+---@param target? ClientId # Who will receive and hear the sound, by defaults its -1 so everyone
+function ddnetpp.create_sound_global(sound_id, target) end
 
 ---Execute rcon command with admin level privileges.
 ---Semicolons are interpreted! So it is NOT SAFE to pass user input to this method.
