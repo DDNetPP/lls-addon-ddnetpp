@@ -319,6 +319,12 @@ function ddnetpp.laser_text(pos, text, ticks) end
 ---@param mask? ClientMask
 function ddnetpp.create_damage_indicator(pos, angle, amount, mask) end
 
+---Creates a visual particle in the world. It has no gameplay effect.
+---The white splash that is usually created when a hammer hits a tee.
+---@param pos Position
+---@param mask ClientMask?
+function ddnetpp.create_hammer_hit(pos, mask) end
+
 ---Create a full explosion at the given position
 ---it will apply "damage" to all hit tees which in ddnet++ usually just means knockback.
 ---@param pos Position
