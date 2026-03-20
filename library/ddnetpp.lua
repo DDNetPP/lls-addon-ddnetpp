@@ -306,6 +306,15 @@ function ddnetpp.send_motd_target(client_id, text) end
 ---@param ticks? integer # For how many server ticks the text should be displayed (see ddnetpp.server.tick_speed())
 function ddnetpp.laser_text(pos, text, ticks) end
 
+---Create a full explosion at the given position
+---it will apply "damage" to all hit tees which in ddnet++ usually just means knockback.
+---@param pos Position
+---@param owner ClientId?
+---@param weapon integer?
+---@param no_damage boolean?
+---@param team integer?
+function ddnetpp.create_explosion(pos, owner, weapon, no_damage, team) end
+
 ---Execute rcon command with admin level privileges.
 ---Semicolons are interpreted! So it is NOT SAFE to pass user input to this method.
 ---@param command string # Full rcon command line with multiple semicolon separated statements
