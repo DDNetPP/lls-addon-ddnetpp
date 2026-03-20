@@ -1,5 +1,12 @@
 ---@meta
 
+---@class ProjectileFlag
+---@field bounce_horizontal? boolean
+---@field bounce_vertical? boolean
+---@field explosive? boolean
+---@field freeze? boolean
+---@field normalize_vel? boolean
+
 ---@class SnapItemProjectile
 ---@field x number
 ---@field y number
@@ -10,7 +17,7 @@
 ---@field owner? integer # Only new enough ddnet clients know this
 ---@field switch_number? integer # Only new enough ddnet clients know this
 ---@field tune_zone? integer # Only new enough ddnet clients know this
----@field flags? integer # Only new enough ddnet clients know this
+---@field flags? integer|ProjectileFlag # Only new enough ddnet clients know this
 
 ---@class SnapItemLaser
 ---@field id integer # Snap item id that should be unique per snap item, use `ddnetpp.snap.new_id()` for that
