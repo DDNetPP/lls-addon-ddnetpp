@@ -335,6 +335,19 @@ function ddnetpp.create_hammer_hit(pos, mask) end
 ---@param mask ClientMask?
 function ddnetpp.create_explosion(pos, owner, weapon, no_damage, team, mask) end
 
+---Creates a visual particle in the world. It has no gameplay effect.
+---The is the purple steam spawn animation.
+---@param pos Position
+---@param mask ClientMask
+function ddnetpp.create_player_spawn(pos, mask) end
+
+---Creates a visual particle in the world. It has no gameplay effect.
+---This is the bursting tee animation that happens when someone dies.
+---@param pos Position
+---@param client_id ClientId # The player that died, used to lookup the skin used for the death effect
+---@param mask ClientMask
+function ddnetpp.create_death(pos, client_id, mask) end
+
 ---Execute rcon command with admin level privileges.
 ---Semicolons are interpreted! So it is NOT SAFE to pass user input to this method.
 ---@param command string # Full rcon command line with multiple semicolon separated statements
