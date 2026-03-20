@@ -311,6 +311,14 @@ function ddnetpp.send_motd_target(client_id, text) end
 ---@param ticks? integer # For how many server ticks the text should be displayed (see ddnetpp.server.tick_speed())
 function ddnetpp.laser_text(pos, text, ticks) end
 
+---Creates a visual particle in the world. It has no gameplay effect.
+---It is a yellow rotating star. And in vanilla teeworlds it indicates the amount of damage.
+---@param pos Position
+---@param angle? number
+---@param amount? integer
+---@param mask? ClientMask
+function ddnetpp.create_damage_indicator(pos, angle, amount, mask) end
+
 ---Create a full explosion at the given position
 ---it will apply "damage" to all hit tees which in ddnet++ usually just means knockback.
 ---@param pos Position
