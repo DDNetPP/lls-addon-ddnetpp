@@ -391,6 +391,11 @@ function ddnetpp.create_player_spawn(pos, mask) end
 ---@param mask ClientMask
 function ddnetpp.create_death(pos, client_id, mask) end
 
+---@param pos Position
+---@param sound_id integer # See ddnetpp.sound.* constants for possible values
+---@param mask? ClientMask
+function ddnetpp.create_sound(pos, sound_id, mask) end
+
 ---Execute rcon command with admin level privileges.
 ---Semicolons are interpreted! So it is NOT SAFE to pass user input to this method.
 ---@param command string # Full rcon command line with multiple semicolon separated statements
