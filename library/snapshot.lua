@@ -7,6 +7,10 @@
 ---@field vel_y? number
 ---@field type? integer # See ddnetpp.weapon.* constants for possible values
 ---@field start_tick? integer
+---@field owner? integer # Only new enough ddnet clients know this
+---@field switch_number? integer # Only new enough ddnet clients know this
+---@field tune_zone? integer # Only new enough ddnet clients know this
+---@field flags? integer # Only new enough ddnet clients know this
 
 ---@class SnapItemLaser
 ---@field id integer # Snap item id that should be unique per snap item, use `ddnetpp.snap.new_id()` for that
