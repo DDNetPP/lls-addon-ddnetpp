@@ -1,5 +1,13 @@
 ---@meta
 
+---@class SnapItemProjectile
+---@field x number
+---@field y number
+---@field vel_x? number
+---@field vel_y? number
+---@field type? integer # See ddnetpp.weapon.* constants for possible values
+---@field start_tick? integer
+
 ---@class SnapItemLaser
 ---@field id integer # Snap item id that should be unique per snap item, use `ddnetpp.snap.new_id()` for that
 ---@field x number # The end position x of the laser ray
@@ -178,3 +186,7 @@ function snap.new_player_info(player_info) end
 ---See ddnetpp.snap.new_character() for a full example
 ---@param client_info SnapItemClientInfo # The info to be included in the current snapshot
 function snap.new_client_info(client_info) end
+
+---Only call this method from within the `ddnetpp.snap.on_snap()` callback!
+---@param projectile SnapItemProjectile
+function snap.new_projectile(projectile) end
