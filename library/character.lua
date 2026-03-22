@@ -27,3 +27,10 @@ function Character:player() end
 ---@param killer? ClientId # Client id of the killer, by default this is the id of the character that will die
 ---@param weapon? integer # Can be any of the ddnetpp.weapon.* constants, by default ddnetpp.weapon.GAME
 function Character:die(killer, weapon) end
+
+---@param weapon integer # See ddnetpp.weapon.* constants for possible values
+---@param ammo? integer # The vanilla range is 0-10 and the negative value -1 means infinite ammo which is the default
+function Character:give_weapon(weapon, ammo) end
+
+---@param weapon integer # See ddnetpp.weapon.* constants for possible values
+function Character:remove_weapon(weapon) end
