@@ -74,6 +74,11 @@
 ---@field on_snap_gameinfo_flags fun(snapping_client_id: integer, flags: integer): integer
 ---@field on_snap_gameinfo_flags2 fun(snapping_client_id: integer, flags: integer): integer
 ---
+---The snap receiver client id is "snapping_client_id" which can be -1 for demos
+---the character that is being snapped is "character" and the item that would be sent by ddnet++ by default
+---gets passed as "snap_item". Whatever item you return will be included in the snapshot.
+---@field on_snap_character fun(snapping_client_id: integer, character: Character, snap_item: SnapItemCharacter): SnapItemCharacter
+---
 ---@field on_player_connect fun(client_id: integer)
 ---@field on_player_disconnect fun(client_id: integer)
 ---
