@@ -8,8 +8,7 @@
 ---@field normalize_vel? boolean
 
 ---@class SnapItemProjectile
----@field x number
----@field y number
+---@field pos Position # The position of the projectile
 ---@field vel_x? number
 ---@field vel_y? number
 ---@field type? integer # See ddnetpp.weapon.* constants for possible values
@@ -21,10 +20,8 @@
 
 ---@class SnapItemLaser
 ---@field id integer # Snap item id that should be unique per snap item, use `ddnetpp.snap.new_id()` for that
----@field x number # The end position x of the laser ray
----@field y number # The end position y of the laser ray
----@field from_x? number # The starting position x of the laser ray
----@field from_y? number # The starting position y of the laser ray
+---@field pos Position # The end position of the laser ray
+---@field from_pos? Position # The starting position of the laser ray
 ---@field start_tick? integer # The servers tick of when this laser was created
 
 ---@class SnapItemPickup
@@ -38,8 +35,7 @@
 ---@class SnapItemCharacter
 ---@field id integer # Snap item id that should be unique per snap item, use `ddnetpp.snap.new_id()` for that
 ---@field tick? integer # The reckoning tick for dead reckoning. The client will use the world and character position and velocity to predict a new position based on the tick diff
----@field x integer # The x coordinate in the world
----@field y integer # The y coordinate in the world
+---@field pos Position # The position of the tee in the world
 ---@field vel_x integer # The horizontal velocity, positive number is speed to the right and negative to the left
 ---@field vel_y integer # The vertical velocity, positive number is speed downwards and negative is speed upwards
 ---@field angle integer # The rotation of the weapon
