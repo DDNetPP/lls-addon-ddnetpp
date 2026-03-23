@@ -36,25 +36,25 @@
 ---@field id integer # Snap item id that should be unique per snap item, use `ddnetpp.snap.new_id()` for that
 ---@field tick? integer # The reckoning tick for dead reckoning. The client will use the world and character position and velocity to predict a new position based on the tick diff
 ---@field pos Position # The position of the tee in the world
----@field vel_x integer # The horizontal velocity, positive number is speed to the right and negative to the left
----@field vel_y integer # The vertical velocity, positive number is speed downwards and negative is speed upwards
----@field angle integer # The rotation of the weapon
----@field direction integer # -1 is left 0 is not walking and 1 is right
----@field jumped integer # Checkout this for more details https://chillerdragon.github.io/teeworlds-protocol/07/snap_items.html#obj_character_core
----@field hooked_player integer # Client id of the player this character is currently hooking or -1 if the hook is not attached to another tee
----@field hook_state integer # See the ddnetpp.hook.* constants for possible values
----@field hook_tick integer
----@field hook_x integer
----@field hook_y integer
----@field hook_dx integer
----@field hook_dy integer
----@field player_flags integer # Bitwise flags like chatting
----@field health integer # Should be in range of 0-10 but can also be -1 if it should be hidden
----@field armor integer # Should be in range of 0-10 but can also be -1 if it should be hidden
----@field ammo_count integer
----@field weapon integer # See ddnetpp.weapon.* constants for possible values
----@field eye_emote integer # See ddnetpp.eye_emote.* constants for possible values
----@field attack_tick integer
+---@field vel_x? integer # The horizontal velocity, positive number is speed to the right and negative to the left
+---@field vel_y? integer # The vertical velocity, positive number is speed downwards and negative is speed upwards
+---@field angle? integer # The rotation of the weapon
+---@field direction? integer # -1 is left 0 is not walking and 1 is right
+---@field jumped? integer # Checkout this for more details https://chillerdragon.github.io/teeworlds-protocol/07/snap_items.html#obj_character_core
+---@field hooked_player? integer # Client id of the player this character is currently hooking or -1 if the hook is not attached to another tee
+---@field hook_state? integer # See the ddnetpp.hook.* constants for possible values
+---@field hook_tick? integer
+---@field hook_x? integer
+---@field hook_y? integer
+---@field hook_dx? integer
+---@field hook_dy? integer
+---@field player_flags? integer # Bitwise flags like chatting
+---@field health? integer # Should be in range of 0-10 but can also be -1 if it should be hidden
+---@field armor? integer # Should be in range of 0-10 but can also be -1 if it should be hidden
+---@field ammo_count? integer
+---@field weapon? integer # See ddnetpp.weapon.* constants for possible values
+---@field eye_emote? integer # See ddnetpp.eye_emote.* constants for possible values
+---@field attack_tick? integer
 
 ---@class SnapItemPlayerInfo
 ---@field id integer # Snap item id that should be unique per snap item, use `ddnetpp.snap.new_id()` for that
