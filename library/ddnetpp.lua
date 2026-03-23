@@ -215,6 +215,7 @@ ddnetpp = {
 		GAME = -3,
 		SELF = -2,
 		WORLD = -1,
+		NONE = -1,
 		HAMMER = 0,
 		GUN = 1,
 		SHOTGUN = 2,
