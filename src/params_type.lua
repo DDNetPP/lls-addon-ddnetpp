@@ -1,4 +1,4 @@
-local tw_console = require("src.external.luluworlds.params")
+local tw_console = require("luluworlds.params")
 
 local function escape_for_lua_string(s)
 	return s:gsub("\\", "\\\\")
