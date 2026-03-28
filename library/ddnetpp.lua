@@ -481,5 +481,10 @@ function ddnetpp.register_rcon(name, parameters, helptext, callback) end
 ---@param callback fun(client_id: integer, args: table<string, string|integer|nil>) the callback that will be run if a user typed the command name into the remote console
 function ddnetpp.register_chat(name, parameters, helptext, callback) end
 
+---Returns a random number in the range of 0 to the given max
+---@param below integer # The maximum random value
+---@return integer random
+function ddnetpp.secure_rand_below(below) end
+
 ---@return string name name of the currently running plugin
 function ddnetpp.plugin_name() end
