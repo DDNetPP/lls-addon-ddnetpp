@@ -92,6 +92,9 @@
 ---use the default spawn position.
 ---@field on_pick_spawn_pos fun(player: Player): Position|nil
 ---
+---You can return false to drop the damage event. Which skips for example the weapon knockback.
+---@field on_character_take_damage fun(character: Character, weapon: integer, from_id: integer, dmg: integer): boolean|nil
+---
 ---The parameter msg contains msg.message and msg.team
 ---which are already filled with the information that would be displayed
 ---in the chat or used for a chat command.
