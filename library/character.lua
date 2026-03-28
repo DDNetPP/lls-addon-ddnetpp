@@ -50,3 +50,9 @@ function Character:remove_weapon(weapon) end
 ---This will only work if set within the ddnetpp.on_character_pre_tick() hook
 ---@param input SetCharacterInput
 function Character:set_input(input) end
+
+---Check if the tee is currently frozen.
+---Is true while in a freeze tile or deep frozen or regular frozen
+---even when not currently in a freeze tile
+---@return boolean frozen # True if this tee is currently frozen
+function Character:is_frozen() end
