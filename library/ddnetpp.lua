@@ -414,8 +414,15 @@ function ddnetpp.create_sound_global(sound_id, target) end
 
 ---Execute rcon command with admin level privileges.
 ---Semicolons are interpreted! So it is NOT SAFE to pass user input to this method.
+---Also be careful in some places running a rcon command to kick or ban might crash
+---the server. So either only kick from on_tick() or use ddnetpp.kick() instead which
+---delays the kick until it is safe.
 ---@param command string # Full rcon command line with multiple semicolon separated statements
 function ddnetpp.rcon(command) end
+
+---@param client_id ClientId
+---@param reason? string
+function ddnetpp.kick(client_id, reason) end
 
 ---Returns the player instance or nil if no player with that id is connected.
 ---The client id is the same client id that is shown in the ddnet and teeworlds clients.
