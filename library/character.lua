@@ -34,3 +34,19 @@ function Character:give_weapon(weapon, ammo) end
 
 ---@param weapon integer # See ddnetpp.weapon.* constants for possible values
 function Character:remove_weapon(weapon) end
+
+---@class SetCharacterInput
+---@field direction? integer
+---@field target_x? integer
+---@field target_y? integer
+---@field jump? integer
+---@field fire? integer
+---@field hook? integer
+---@field player_flags? integer
+---@field wanted_weapon? integer
+---@field next_weapon? integer
+---@field prev_weapon? integer
+
+---This will only work if set within the ddnetpp.on_character_pre_tick() hook
+---@param input SetCharacterInput
+function Character:set_input(input) end

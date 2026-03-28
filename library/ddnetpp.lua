@@ -31,6 +31,9 @@
 ---Gets called every tick for every connected player
 ---@field on_player_tick fun(player: Player)
 ---
+---Set inputs in this callback
+---@field on_character_pre_tick fun(character: Character)
+---
 ---Implement your own tiles here.
 ---Gets called for every alive character.
 ---If you want to know the position you can just do `character:pos()`
