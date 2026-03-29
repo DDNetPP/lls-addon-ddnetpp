@@ -8,6 +8,10 @@
 ---@field x number
 ---@field y number
 
+---@class OptionalVelocity
+---@field x? number
+---@field y? number
+
 ---@class Vec2
 ---@field x number
 ---@field y number

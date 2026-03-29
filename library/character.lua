@@ -7,6 +7,10 @@ local Character = {}
 ---@return Position pos # The floating point position of a tee in the world
 function Character:pos() end
 
+---Counter part to :set_velocity()
+---@return Vec2 velocity # The current speed of the tee in the world
+function Character:vel() end
+
 ---Counter part to :pos()
 ---@param pos Position # Teleport the current tee to that new position instantly without killing them
 function Character:set_position(pos) end
@@ -15,6 +19,13 @@ function Character:set_position(pos) end
 ---@param x integer|number # Teleport target x coordinate
 ---@param y integer|number # Teleport target x coordinate
 function Character:set_position(x, y) end
+
+---@param vel OptionalVelocity
+function Character:set_velocity(vel) end
+
+---@param x integer
+---@param y integer
+function Character:set_velocity(x, y) end
 
 ---@return integer client_id # Same as id() on the player instance
 function Character:id() end
