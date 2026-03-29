@@ -58,9 +58,25 @@ function Character:remove_weapon(weapon) end
 ---@field next_weapon? integer
 ---@field prev_weapon? integer
 
+---@class CharacterInput
+---@field direction integer
+---@field target_x integer
+---@field target_y integer
+---@field jump integer
+---@field fire integer
+---@field hook integer
+---@field player_flags integer
+---@field wanted_weapon integer
+---@field next_weapon integer
+---@field prev_weapon integer
+
 ---This will only work if set within the ddnetpp.on_character_pre_tick() hook
 ---@param input SetCharacterInput
 function Character:set_input(input) end
+
+---Counter part to set_input() fetches the latest inputs of this player
+---@return CharacterInput input
+function Character:input() end
 
 ---Check if the tee is currently frozen.
 ---Is true while in a freeze tile or deep frozen or regular frozen
