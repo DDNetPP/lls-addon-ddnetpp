@@ -82,6 +82,11 @@
 ---gets passed as "snap_item". Whatever item you return will be included in the snapshot.
 ---@field on_snap_character fun(snapping_client_id: integer, character: Character, snap_item: SnapItemCharacter): SnapItemCharacter
 ---
+---The snap receiver client id is "snapping_client_id" which can be -1 for demos
+---The player that is being snapped is "player" and the info that would be sent by ddnet++ by default
+---gets passed as "snap_item". You can alter any field in "snap_item" and return it again to change what is being sent.
+---@field on_snap_player fun(snapping_client_id: integer, player: Player, snap_item: SnapItemPlayer): SnapItemPlayerOptional
+---
 ---@field on_player_connect fun(client_id: integer)
 ---@field on_player_disconnect fun(client_id: integer)
 ---

@@ -32,6 +32,14 @@
 ---@field switch_number? integer # Which switch index turns on or off the pickup
 ---@field flags? integer # TODO: document and defined types
 
+---This contains fields from the snap items client info
+---and player info
+---@class SnapItemPlayer
+---@field score integer
+
+---@class SnapItemPlayerOptional
+---@field score? integer
+
 ---@class SnapItemCharacter
 ---@field id integer # Snap item id that should be unique per snap item, use `ddnetpp.snap.new_id()` for that
 ---@field tick? integer # The reckoning tick for dead reckoning. The client will use the world and character position and velocity to predict a new position based on the tick diff
