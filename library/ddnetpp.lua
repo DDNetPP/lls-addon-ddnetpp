@@ -400,8 +400,15 @@ function ddnetpp.create_player_spawn(pos, mask) end
 ---This is the bursting tee animation that happens when someone dies.
 ---@param pos Position
 ---@param client_id ClientId # The player that died, used to lookup the skin used for the death effect
----@param mask ClientMask
+---@param mask? ClientMask
 function ddnetpp.create_death(pos, client_id, mask) end
+
+---Creates visual particles in the world. It has no gameplay effect.
+---These are colorful particles that fly up. Use by ddnet when a player that has birthday
+---joins the server or when someone finishes the map.
+---@param pos Position
+---@param mask? ClientMask
+function ddnetpp.create_confetti(pos, mask) end
 
 ---@param pos Position
 ---@param sound_id? integer # See ddnetpp.sound.* constants for possible values
