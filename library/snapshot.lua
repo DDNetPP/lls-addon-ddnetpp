@@ -35,10 +35,32 @@
 ---This contains fields from the snap items client info
 ---and player info
 ---@class SnapItemPlayer
+---@field name string
+---@field clan string
+---@field country integer
+---@field skin string
+---@field use_custom_color boolean
+---@field color_body integer
+---@field color_feet integer
+---@field local boolean # It is not recommended to set this field, only if you know what you are doing
+---@field client_id integer # It is not recommended to set this field, only if you know what you are doing
+---@field team integer # -3 is spectators, 0 is red/game and 1 is blue
 ---@field score integer
+---@field latency integer
 
 ---@class SnapItemPlayerOptional
+---@field name? string
+---@field clan? string
+---@field country? integer
+---@field skin? string
+---@field use_custom_color? boolean
+---@field color_body? integer
+---@field color_feet? integer
+---@field local? boolean # It is not recommended to set this field, only if you know what you are doing
+---@field client_id? integer # It is not recommended to set this field, only if you know what you are doing
+---@field team? integer # -3 is spectators, 0 is red/game and 1 is blue
 ---@field score? integer
+---@field latency? integer
 
 ---@class SnapItemCharacter
 ---@field id integer # Snap item id that should be unique per snap item, use `ddnetpp.snap.new_id()` for that
