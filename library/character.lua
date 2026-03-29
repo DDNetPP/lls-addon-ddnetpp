@@ -67,3 +67,6 @@ function Character:set_input(input) end
 ---even when not currently in a freeze tile
 ---@return boolean frozen # True if this tee is currently frozen
 function Character:is_frozen() end
+
+---@param seconds integer
+function Character:freeze(seconds) end
