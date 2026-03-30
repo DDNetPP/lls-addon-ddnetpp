@@ -14,3 +14,11 @@ function server.tick_speed() end
 ---@param client_id ClientId
 ---@return string
 function server.client_name(client_id) end
+
+---@param client_id integer
+---@return boolean success
+function server.occupy_client_id(client_id) end
+
+---@param client_id integer
+---@return boolean success
+function server.free_occupied_client_id(client_id) end
