@@ -331,6 +331,33 @@ function ddnetpp.log_error(system, message) end
 ---@param message string # Line to log to the server console
 function ddnetpp.log_error(message) end
 
+---@alias ScoreType string
+---|"'time'"
+---|"'points'"
+
+---The ddnet client supports two modes for the scoreboard
+---one that is "time" based which is used by regular ddnet for
+---finish times its a format like 00:00 and the score value
+---goes through a formula that converts a integer number into this time
+---Then there is the "points" based format which just displays the
+---players score number as is as a raw number. This is used in the
+---regular ddnet client for teeworlds vanilla servers
+---but custom servers like ddnet++ can also ask the client to switch
+---to that display type and that is exactly what this function is for.
+---You can set one specific clients score mode. Meaning when that
+---player opens the scoreboard they will see ALL OTHER players
+---in that mode. It does not affect how this player is shown to others.
+---
+---Be careful this value is not locked. The user can override what you set here
+---using the chat command /score
+---
+---This also does not affect the master server.
+---So the player list previewed in the clients server browser
+---will use a different score type than this.
+---@param client_id ClientId
+---@param score_type ScoreType
+function ddnetpp.set_client_score_type(client_id, score_type) end
+
 ---Sends a server chat message to everyone.
 ---@param message string # The message to be displayed in chat
 function ddnetpp.send_chat(message) end
