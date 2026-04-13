@@ -10,6 +10,18 @@ function Player:id() end
 ---@return string name
 function Player:name() end
 
+---Add amount of money to the current balance of this player.
+---This is using the ddnet++ currency. The amount will be saved in the players
+---account if the player is logged in.
+---The transaction will show up in the /money chat command.
+---@param amount integer # Positive or negative amount of money that will be added to the players balance
+---@param description string # Context of what caused the transaction without the amount such as "bought item xyz"
+function Player:money_transaction(amount, description) end
+
+---Get the current money balance of this player
+---@return integer money
+function Player:money() end
+
 ---Update a players looks by changing the skin of the tee.
 ---When setting color_body or color_feet make sure to also set use_custom_color to true
 ---@param skin_info SkinInfo # Skin details, all fields are optional. Only updates the provided fields.
