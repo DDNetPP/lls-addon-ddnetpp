@@ -22,6 +22,20 @@ function Player:money_transaction(amount, description) end
 ---@return integer money
 function Player:money() end
 
+---Mark player as afk.
+---Will add the sleepy zZZ emote above their head
+---tilt their feet and close their eyes
+---also some logic might be skipped for afk players
+---such as being removed from the required votes counter
+---the ddnet server also sets the afk state when a player
+---did not send inputs for some time
+---@param afk boolean
+function Player:set_afk(afk) end
+
+---See Player:set_afk() for more context what afk means.
+---@return boolean afk
+function Player:is_afk() end
+
 ---Update a players looks by changing the skin of the tee.
 ---When setting color_body or color_feet make sure to also set use_custom_color to true
 ---@param skin_info SkinInfo # Skin details, all fields are optional. Only updates the provided fields.
