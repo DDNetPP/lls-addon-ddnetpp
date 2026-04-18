@@ -539,5 +539,18 @@ function ddnetpp.register_chat(name, parameters, helptext, callback) end
 ---@return integer random
 function ddnetpp.secure_rand_below(below) end
 
+---TODO: a bit nicer would be passing in a table
+---      like { name = "foo", silent = false, clan = "bar" }
+---
+---Create a new full tee that occupies a client id and spawns in the world
+---@param silent? boolean # false by default if true a connect message will be shown in chat
+---@return integer|nil client_id # Client id of new fake tee or nil on error
+function ddnetpp.create_tee(silent) end
+
+---Remove a tee that was addded with ddnetpp.create_tee()
+---@param client_id integer
+---@param silent? boolean # false by default if true a disconnect message will be shown in chat
+function ddnetpp.drop_tee(client_id, silent) end
+
 ---@return string name name of the currently running plugin
 function ddnetpp.plugin_name() end
