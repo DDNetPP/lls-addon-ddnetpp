@@ -362,6 +362,11 @@ function ddnetpp.set_client_score_type(client_id, score_type) end
 ---@param message string # The message to be displayed in chat
 function ddnetpp.send_chat(message) end
 
+---Sends a chat message impersonating the given client id
+---@param client_id ClientId # The author of the chat message
+---@param message string # The message to be displayed in chat
+function ddnetpp.send_chat_as(client_id, message) end
+
 ---Sends a server chat message to one specific client.
 ---@param client_id ClientId # The recipient of the message
 ---@param message string # The message to be displayed in chat
