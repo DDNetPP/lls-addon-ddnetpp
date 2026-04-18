@@ -552,5 +552,11 @@ function ddnetpp.create_tee(silent) end
 ---@param silent? boolean # false by default if true a disconnect message will be shown in chat
 function ddnetpp.drop_tee(client_id, silent) end
 
+---Check if a client id is tied to a server controlled tee
+---that was added with ddnetpp.create_tee() and has no real client behind it
+---@param client_id ClientId # Client id to check for being a server controlled tee
+---@return boolean # True if there is no human behind that client id but a server controlled tee
+function ddnetpp.is_server_tee(client_id) end
+
 ---@return string name name of the currently running plugin
 function ddnetpp.plugin_name() end
