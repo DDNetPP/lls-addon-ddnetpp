@@ -109,8 +109,9 @@ local snap = {}
 
 ---Allocates a new id for a snapshot item.
 ---Make sure to free it if you no longer send the snap item.
+---Can return nil if no more ids are left.
 ---Using `ddnetpp.snap.free_id(id)`
----@return integer snap_item_id # the next free id that can be used for snapshot items
+---@return integer|nil snap_item_id # the next free id that can be used for snapshot items
 function snap.new_id() end
 
 ---Frees an snapshot item id that was allocated
