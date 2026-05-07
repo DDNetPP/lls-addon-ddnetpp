@@ -34,6 +34,8 @@
 ---Set inputs in this callback
 ---@field on_character_pre_tick fun(character: Character)
 ---
+---@field on_account_login fun(client_id: integer): boolean|nil # return false to block the login
+---
 ---Implement your own tiles here.
 ---Gets called for every alive character.
 ---If you want to know the position you can just do `character:pos()`
