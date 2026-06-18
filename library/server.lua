@@ -22,3 +22,7 @@ function server.occupy_client_id(client_id) end
 ---@param client_id integer
 ---@return boolean success
 function server.free_occupied_client_id(client_id) end
+
+---@param client_id ClientId
+---@param reason string
+function server.drop(client_id, reason) end
