@@ -1,5 +1,18 @@
 ---@meta
 
+---@class ProjectileArgs
+---@field type? integer # ddnetpp.weapon.GUN by default
+---@field owner? ClientId
+---@field pos? Position
+---@field dir? Vec2
+---@field span? integer
+---@field freeze? boolean
+---@field explosive? boolean
+---@field sound_impact? integer
+---@field init_dir? Vec2
+---@field Layer? integer
+---@field Number? integer
+
 ---@class ClientMask
 ---The keys are client id integers from 0 to 127
 ---all set keys are included in the mask
@@ -575,6 +588,12 @@ function ddnetpp.drop_tee(client_id, silent) end
 ---@param client_id ClientId # Client id to check for being a server controlled tee
 ---@return boolean # True if there is no human behind that client id but a server controlled tee
 function ddnetpp.is_server_tee(client_id) end
+
+---Create a new regular projectile. It will be managed by the server.
+---So it will be flying in the provided direction and despawn on hit
+---or if its lifetime ends.
+---@param projectile ProjectileArgs
+function ddnetpp.new_projectile(projectile) end
 
 ---@return string name name of the currently running plugin
 function ddnetpp.plugin_name() end
