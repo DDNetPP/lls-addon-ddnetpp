@@ -123,6 +123,11 @@
 ---and data is the raw data that is being sent
 ---return true to drop the message and abort sending it.
 ---@field on_server_message fun(client_id: integer, data: string, flags: integer): boolean # Called for every network message the server sends. Return true to drop the message.
+---
+---You can kick players during connect here for example to implement
+---custom bans or slot limits
+---return false to do an early return and basically drop the client
+---@field on_net_msg_info fun(client_id: integer, version: string, password: string|nil): boolean|nil # Called when a client connects and sends its net version
 ddnetpp = {
 	skin_priority = {
 		-- the skin the client requested
