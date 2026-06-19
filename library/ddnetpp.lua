@@ -594,6 +594,36 @@ function ddnetpp.is_server_tee(client_id) end
 ---Create a new regular projectile. It will be managed by the server.
 ---So it will be flying in the provided direction and despawn on hit
 ---or if its lifetime ends.
+---
+---Here an example that lets every weapon shoot grenade projectiles
+---
+---```lua
+---function ddnetpp.on_fire_weapon(client_id, weapon, direction, mouse_target, projectile_start_pos)
+---	local chr = ddnetpp.get_character(client_id)
+---	if chr == nil then
+---		return
+---	end
+---
+---	-- WARNING: there is some bug in here the angle is wrong
+---
+---	local dir = ddnetpp.math.normalize(mouse_target)
+---	local prox_radius = 28.0
+---	local pos = chr:pos()
+---	pos.x = pos.x + dir.x * ((prox_radius * 0.75) / 32.0)
+---	pos.y = pos.y + dir.y * ((prox_radius * 0.75) / 32.0)
+---
+---	ddnetpp.new_projectile({
+---		owner = client_id,
+---		type = ddnetpp.weapon.GRENADE,
+---		pos = pos,
+---		dir = dir,
+---		init_dir = mouse_target,
+---		sound_impact = ddnetpp.sound.GRENADE_EXPLODE
+---	})
+---
+---	return false
+---end
+---```
 ---@param projectile ProjectileArgs
 function ddnetpp.new_projectile(projectile) end
 
