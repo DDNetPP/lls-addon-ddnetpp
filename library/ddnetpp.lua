@@ -31,6 +31,8 @@
 ---
 ---@field server Server # The name server only makes sense if you know the C++ codebase :D
 ---
+---@field math ddnetpp.Math # The ddnet/teeworlds engine base math functions
+---
 ---@field protocol Protocol # Network protocol constants
 ---
 ---@field collision Collision # Currently loaded map related methods
