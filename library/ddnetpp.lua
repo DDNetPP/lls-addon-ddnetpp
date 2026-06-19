@@ -1,7 +1,7 @@
 ---@meta
 
 ---@class ProjectileArgs
----@field type? integer # ddnetpp.weapon.GUN by default
+---@field type? integer # ddnetpp.weapon.GRENADE by default
 ---@field owner? ClientId
 ---@field pos? Position # The starting position in the world of the projectile.
 ---@field dir? Vec2 # Normalized directection, both x and y need to be in range from 0.0 to 1.0
