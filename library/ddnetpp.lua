@@ -3,13 +3,13 @@
 ---@class ProjectileArgs
 ---@field type? integer # ddnetpp.weapon.GUN by default
 ---@field owner? ClientId
----@field pos? Position
----@field dir? Vec2
----@field span? integer
+---@field pos? Position # The starting position in the world of the projectile.
+---@field dir? Vec2 # Normalized directection, both x and y need to be in range from 0.0 to 1.0
+---@field span? integer # The lifetime in server ticks, so 50 is one second.
 ---@field freeze? boolean
 ---@field explosive? boolean
 ---@field sound_impact? integer
----@field init_dir? Vec2
+---@field init_dir? Vec2 # The mouse target of the tee that launched the projectile. Relative to the tee. So { x = -200, y = 10 } means aiming left and slightly up.
 ---@field Layer? integer
 ---@field Number? integer
 
