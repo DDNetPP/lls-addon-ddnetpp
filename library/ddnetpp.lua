@@ -2,16 +2,16 @@
 
 ---@class ProjectileArgs
 ---@field type? integer # ddnetpp.weapon.GRENADE by default
----@field owner? ClientId
+---@field owner? ClientId # The tee that fired the projectile, used to skip collision with the owner
 ---@field pos Position # The starting position in the world of the projectile.
 ---@field dir? Vec2 # Normalized directection, both x and y need to be in range from 0.0 to 1.0
 ---@field span? integer # The lifetime in server ticks, so 50 is one second.
----@field freeze? boolean
----@field explosive? boolean
----@field sound_impact? integer
+---@field freeze? boolean # Freeze tees that get hit by the projectile
+---@field explosive? boolean # Let the projectile explode when it hits a wall
+---@field sound_impact? integer # Default is -1 which is no sound, use the ddnet.sound.* enum like for example ddnetpp.sound.HIT
 ---@field init_dir? Vec2 # The mouse target of the tee that launched the projectile. Relative to the tee. So { x = -200, y = 10 } means aiming left and slightly up.
----@field Layer? integer
----@field Number? integer
+---@field Layer? integer # If you know what you are doing pass value 4 to indicate LAYER_SWITCH
+---@field Number? integer # Switch layer related number
 
 ---@class ClientMask
 ---The keys are client id integers from 0 to 127
