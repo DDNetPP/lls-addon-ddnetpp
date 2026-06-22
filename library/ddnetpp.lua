@@ -517,6 +517,14 @@ function ddnetpp.send_vote_clear_options(client_id) end
 ---@param description string
 function ddnetpp.send_vote_option_add(client_id, description) end
 
+---Sets the properties for the vote bar rendered by the client.
+---Needs an active running vote to have an effect.
+---@param client_id ClientId # Can be -1 for all clients
+---@param total integer # Total amount of players that can vote
+---@param yes integer # Amount of yes votes
+---@param no integer # Amount of no votes
+function ddnetpp.send_vote_status(client_id, total, yes, no) end
+
 ---Returns the player instance or nil if no player with that id is connected.
 ---The client id is the same client id that is shown in the ddnet and teeworlds clients.
 ---
