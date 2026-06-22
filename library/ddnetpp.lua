@@ -1,5 +1,17 @@
 ---@meta
 
+---@alias VoteType string
+---|"'kick'"
+---|"'spectate'"
+---|"'option'"
+
+---@class NewVote
+---@field creator_id ClientId # The client that will be shown as the vote creator
+---@field type VoteType # Type of the vote
+---@field timeout integer # Time in seconds the vote will keep running
+---@field description string # The server provided name for the vote
+---@field reason string # The vote callers provided reason
+
 ---@class ProjectileArgs
 ---@field type? integer # ddnetpp.weapon.GRENADE by default
 ---@field owner? ClientId # The tee that fired the projectile, used to skip collision with the owner
@@ -138,7 +150,7 @@
 ---Called when a client tries to start a new vote by calling one from the vote menu.
 ---
 ---See also on_vote() for when players participate in the vote with yes or no.
----@field on_call_vote fun(client_id: integer, type: 'kick'|'spectate'|'option', value: string, reason: string): false|nil
+---@field on_call_vote fun(client_id: integer, type: VoteType, value: string, reason: string): false|nil
 ---
 ---You can return false from this method to ignore the vote.
 ---
@@ -524,6 +536,18 @@ function ddnetpp.send_vote_option_add(client_id, description) end
 ---@param yes integer # Amount of yes votes
 ---@param no integer # Amount of no votes
 function ddnetpp.send_vote_status(client_id, total, yes, no) end
+
+---Tell the client there is a new vote.
+---This does not create a real vote. The server does not know about the vote.
+---So it will not handle yes or no votes or do something when the vote finished.
+---This is something you need to do from lua.
+---@param vote NewVote # The vote data that will be sent to client_id
+function ddnetpp.send_vote_start(client_id, vote) end
+
+---@param client_id ClientId
+---@param vote_creator_id ClientId
+---@param enforce 'yes'|'no'|'abort'
+function ddnetpp.send_vote_end(client_id, vote_creator_id, enforce) end
 
 ---Returns the player instance or nil if no player with that id is connected.
 ---The client id is the same client id that is shown in the ddnet and teeworlds clients.
