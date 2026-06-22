@@ -497,6 +497,15 @@ function ddnetpp.rcon(command) end
 ---@param reason? string
 function ddnetpp.kick(client_id, reason) end
 
+---Clear the vote menu for that client
+---@param client_id ClientId
+function ddnetpp.send_vote_clear_options(client_id) end
+
+---Add a new entry to this clients vote menu
+---@param client_id ClientId
+---@param description string
+function ddnetpp.send_vote_option_add(client_id, description) end
+
 ---Returns the player instance or nil if no player with that id is connected.
 ---The client id is the same client id that is shown in the ddnet and teeworlds clients.
 ---
