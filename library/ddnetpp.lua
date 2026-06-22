@@ -134,6 +134,17 @@
 ---You can return false from this method to block the shot.
 ---@field on_fire_weapon fun(client_id: integer, weapon: integer, direction: Vec2, mouse_target: Vec2, projectile_start_pos: Position): false|nil
 ---
+---You can return false from this method to ignore the vote call.
+---Called when a client tries to start a new vote by calling one from the vote menu.
+---
+---See also on_vote() for when players participate in the vote with yes or no.
+---@field on_call_vote fun(client_id: integer, type: 'kick'|'spectate'|'option', value: string, reason: string): false|nil
+---
+---You can return false from this method to ignore the vote.
+---
+---See also on_call_vote() for when players start a new vote.
+---@field on_vote fun(client_id: integer, value: 'yes'|'no'): false|nil
+---
 ---The client_id is the client that will receive the message
 ---and data is the raw data that is being sent
 ---return true to drop the message and abort sending it.
