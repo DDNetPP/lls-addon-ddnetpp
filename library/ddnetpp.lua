@@ -449,6 +449,19 @@ function ddnetpp.send_motd(text) end
 ---@param client_id ClientId # The player that will receive the broadcast
 function ddnetpp.send_motd_target(client_id, text) end
 
+---sends an important message to all clients
+---a quite new ddnet client feature that displays a big text
+---will fallback to broadcast for old clients
+---@param text string # The text to be displayed
+function ddnetpp.send_server_alert(text) end
+
+---sends an important message to a specific client
+---a quite new ddnet client feature that displays a big text
+---will fallback to broadcast for old clients
+---@param client_id ClientId # Who will receive the moderator alert
+---@param text string # Message to be displayed
+function ddnetpp.send_moderator_alert(client_id, text) end
+
 ---Render a text our of laser projectiles in the world
 ---@param pos Position # Where in the world the laser text should appear
 ---@param text string # What kind of text should be displayed
